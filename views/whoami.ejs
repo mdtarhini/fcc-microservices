@@ -1,0 +1,64 @@
+<html lang="en">
+<%- include('./partials/head.ejs')   %>
+
+
+    <body>
+        <%- include('./partials/navbar.ejs')   %>
+
+            <div class="container-fluid  align-items-center text-center mt-5 px-0" id="mainContainer">
+                <div class="container text-left mt-5">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Header Parser</h5>
+                            <p>A simple microservice that return the follwong information about the current user:</p>
+                            <ul>
+                                <li>
+                                    <strong>ip address</strong>
+                                </li>
+                                <li>
+                                    <strong>Preferred language</strong>
+                                </li>
+                                <li>
+                                    <strong>Software information</strong>
+                                </li>
+                            </ul>
+
+                            <a href="/api/whoami"><button class="btn btn-primary mb-2 btn-block btn-sm btn-dark" href="/api/whoami">Test</button></a>
+
+
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <h4 class="mt-5">API</h4>
+
+                    <table class="table table-sm table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Method</th>
+                                <th scope="col">Endpoint</th>
+                                <th scope="col">Output</th>
+                                <th scope="col">Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GET</td>
+                                <td>/api/whoami</td>
+                                <td>json: {ipaddress:"...",language:"...",software: "..."}</td>
+                                <td>
+                                    <a href="/api/whoami">/api/whoami</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+
+    </body>
+
+</html>

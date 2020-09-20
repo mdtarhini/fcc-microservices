@@ -1,32 +1,14 @@
 <html lang="en">
+<%- include('./partials/head.ejs')   %>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel='stylesheet' href='/style.css'>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <body>
+        <%- include('./partials/navbar.ejs')   %>
+            <div class="container-fluid  align-items-center text-center mt-5 px-0" id="mainContainer">
 
-    <title>TimeStamper</title>
-</head>
+                <div class="container mt-5">
 
-<body>
-    <div class="container-fluid  align-items-center text-center mt-5 px-0" id="mainContainer">
-        <nav class="navbar navbar-dark bg-dark text-white">
-            <h3 id='title' class="my-0 ml-2">TimeStamper</h3>
-        </nav>
-        <div class="container mt-5">
-            <form class="form-inline" action="/api/shorturl/new" method="post">
-                <div class="form-group mx-sm-3 mb-2">
-                    <label for="inputURL">Actual URL</label>
-                    <input type="text" class="form-control" id="inputURL" placeholder="Original url" name="actualURL">
                 </div>
-                <button type="submit" class="btn btn-primary mb-2">Shorten</button>
-            </form>
-        </div>
-</body>
+    </body>
 
 </html>

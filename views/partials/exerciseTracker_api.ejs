@@ -1,0 +1,37 @@
+<h4 class="mt-5">API</h4>
+<table class="table table-sm table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Method</th>
+            <th scope="col">Endpoint</th>
+            <th scope="col">Output</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>POST</td>
+            <td>/api/exercise/add</td>
+            <td>json: {_id: "...", username: "...", date: "...", description: "...", duration : ...}</td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>/api/exercise/new-user</td>
+            <td>json: {_id: "...", username: "...", name: "...", age: ...}</td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>/api/exercise/forgot-id</td>
+            <td>json: {_id: "...", username: "..."}</td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/api/exercise/users</td>
+            <td>json: [{_id: "...", username: "..."},...]</td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/api/exercise/log?{userId}[&from][&to][&limit]</td>
+            <td>json: [{_id: "...", username: "..."},...]</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,61 @@
+<html lang="en">
+<%- include('./partials/head.ejs')   %>
+
+
+    <body>
+        <%- include('./partials/navbar.ejs')   %>
+
+            <div class="container-fluid  align-items-center text-center mt-5 px-0" id="mainContainer">
+                <div class="container text-left mt-5">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">URL shortener</h5>
+                            <p>URL shortener is a tool by which Uniform Resource Locator (URL) may be made substantially shorter and still direct to the required page. <br>This is achieved by using a redirect which links to the web page that has a long URL.<br>                                For example, the URL <code>"https://host.com/cargories/category_1/subcategory_2/Images/"</code> can be shortened to <code>"https://anotherhost.com/Foo"</code></p>
+
+                            <form action="/api/shorturl/new" method="post" class="mt-5">
+                                <h6>Try it:</h6>
+                                <div class="form-row">
+                                    <div class="col-7">
+                                        <input type="text" class="form-control" id="inputURL" placeholder="Original url" name="actualURL">
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="submit" class="btn btn-dark mb-2">Shorten</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <h4 class="mt-5">API</h4>
+
+                    <table class="table table-sm table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Method</th>
+                                <th scope="col">Endpoint</th>
+                                <th scope="col">Values / type (format) / required</th>
+                                <th scope="col">Output</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>POST</td>
+                                <td>/api/shorturl/new</td>
+                                <td>
+                                    original_url / String (valid url) / true
+                                </td>
+                                <td>json: {"original_url":"www.example.com","short_url":1}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+
+    </body>
+
+</html>

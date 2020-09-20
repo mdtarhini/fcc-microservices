@@ -1,0 +1,96 @@
+<html lang="en">
+<%- include('./partials/head.ejs')   %>
+
+
+    <body>
+        <%- include('./partials/navbar.ejs')   %>
+
+            <div class="container-fluid  align-items-center text-center mt-5 px-0" id="mainContainer">
+
+                <div class="container text-left my-5 px-1">
+                    <div class="card-group">
+                        <div class="card mx-3">
+                            <div class="card-body">
+                                <h5 class="card-title">What is the unix time stamp?</h5>
+                                <p>Unix time (also known as Epoch time, POSIX time, seconds since the Epoch, or UNIX Epoch time) is a system for describing a point in time. It is the number of seconds that have elapsed since the Unix epoch, minus leap seconds;
+                                    the Unix epoch is 00:00:00 UTC on 1 January 1970. Leap seconds are ignored, with a leap second having the same Unix time as the second before it, and every day is treated as if it contains exactly 86400 seconds. Due
+                                    to this treatment, Unix time is not a true representation of UTC.</p>
+                            </div>
+                        </div>
+
+                        <div class="card mx-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Timestamp converter</h5>
+                                <form class="form" method="post" action="/api/timestamp">
+                                    <div class="form-group mb-2">
+                                        <h6>Enter a Date and Time:</h6>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col">Date:</div>
+                                        <div class="col"><input style="width:5em;" class="form-control form-control-sm" name="year" type="number" min="0" placeholder="YYYY"></div>
+                                        <div class="col"> <input style="width:5em;" class="form-control form-control-sm" name="month" type="number" placeholder="MM" min="1" max="12"></div>
+                                        <div class="col"><input style="width:5em;" class="form-control form-control-sm" name="day" type="number" placeholder="DD" min="1" max="31"></div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col">Time:</div>
+                                        <div class="col"><input style="width:5em;" class="form-control form-control-sm" name="hours" type="number" placeholder="hh" min="0" max="23"></div>
+                                        <div class="col"><input style="width:5em;" class="form-control form-control-sm" name="mins" type="number" placeholder="mm" min="0" max="59"></div>
+                                        <div class="col"><input style="width:5em;" class="form-control form-control-sm" name="secs" type="number" placeholder="ss" min="0" max="59"></div>
+                                    </div>
+                                    <div class="form-row my-4">
+                                        <div class="col-12">
+                                            <h6>Or enter a timestamp:</h6>
+                                        </div>
+                                        <div class="col">
+                                            <input class="form-control form-control-sm" type="number" name="timestamp" id="timestamp" placeholder="1234557890" style="width:12em;">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-dark btn-sm btn-block" type="submit" name="Submit">Convert</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <br>
+                    <h4 class="mt-5">API</h4>
+                    <table class="table table-sm table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Method</th>
+                                <th scope="col">Endpoint</th>
+                                <th scope="col">Parameters / type / required</th>
+                                <th scope="col">Output</th>
+                                <th scope="col">Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GET</td>
+                                <td>/api/timestamp/:date_string?</td>
+                                <td>
+                                    date_string / String|Number / false
+                                </td>
+                                <td>json: {unix: xxxxxx ,utc: "date"}</td>
+                                <td>
+                                    <a href="/api/timestamp/2020-09-19">/api/timestamp/2020-09-19</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+
+
+                </div>
+
+    </body>
+
+</html>
