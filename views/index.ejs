@@ -1,13 +1,32 @@
 <html lang="en">
 <%- include('./partials/head.ejs')   %>
 
-
     <body>
         <%- include('./partials/navbar.ejs')   %>
             <div class="container-fluid  align-items-center text-center mt-5 px-0" id="mainContainer">
 
-                <div class="container mt-5">
+                <div class="container mt-5 text-left">
+                    <% cards.forEach(card=>{ %>
+                        <div class="card mb-3 indexCard">
+                            <div class="row no-gutters">
+                                <div class="col-md-1 d-flex align-items-center">
+                                    <i class="fa <%= card.icon %> mx-3 mx-md-auto icon"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%=  card.title %>
+                                        </h5>
+                                        <p class="card-text">
+                                            <%=  card.text %>
+                                        </p>
+                                        <a href="<%= card.href %>" class="stretched-link"></a>
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
                 </div>
     </body>
 

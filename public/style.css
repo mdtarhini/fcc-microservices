@@ -3,11 +3,12 @@ body {
     background: linear-gradient(65deg, rgba(255, 255, 255, 1) 0%, rgba(80, 140, 176, 1) 100%);
     color: #03254c; */
     /* overflow: hidden; */
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: white;
     position: relative;
 }
 
-.navbar {
+.navbar-brand {
     font-family: 'Bebas Neue', cursive;
 }
 
@@ -44,4 +45,24 @@ body {
 
 .form-group label {
     font-size: small;
+}
+
+.icon {
+    font-size: 40px !important;
+}
+
+.indexCard:hover {
+    background-color: rgb(52, 58, 64);
+    color: whitesmoke;
+}
+
+.api {
+    margin-top: 100px;
+}
+
+@media (max-width: 767px) {
+    .icon {
+        font-size: 29px !important;
+        margin-top: 10px !important;
+    }
 }

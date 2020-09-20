@@ -38,7 +38,44 @@ app.use(express.static("public"));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", (req, res) => {
-  res.render("index");
+  let arrayOfServices = [
+    {
+      title: "Time Stamper",
+      href: "/timestamper",
+      icon: "fa-clock-o",
+      text: "unix-utc time converter",
+    },
+    {
+      title: "URL shortener",
+      href: "/urlshortener",
+      icon: "fa-compress",
+      text:
+        "A useful tool that provides (for an input URL) a shortened URL directing to the same page.",
+    },
+    {
+      title: "Header parser",
+      href: "/whoami",
+      icon: "fa-info",
+      text:
+        "A useful tool that provides (for an input URL) a shortened URL directing to the same page.",
+    },
+    {
+      title: "Exercise tracker",
+      href: "/exercisetracker",
+      icon: "fa-book",
+      text:
+        "A useful tool that provides (for an input URL) a shortened URL directing to the same page.",
+    },
+    {
+      title: "File inspector",
+      href: "/filesizer",
+      icon: "fa-file-o",
+      text:
+        "A useful tool that provides (for an input URL) a shortened URL directing to the same page.",
+    },
+  ];
+
+  res.render("index", { cards: arrayOfServices });
 });
 // ---------------------------------------------------------------------------------------------------//
 //Below are the five views renderer
@@ -264,9 +301,10 @@ app.post("/api/exercise/forgot-id", (req, res, next) => {
 const getDateOrToday = (strDate) => {
   let date = new Date(strDate);
   if (date == "Invalid Date") date = new Date();
-  return `${date.getFullYear()}-${("0" + (date.getUTCMonth() + 1)).slice(
-    -2
-  )}-${date.getUTCDate()}`;
+  return date.toDateString();
+  // return `${date.getFullYear()}-${("0" + (date.getUTCMonth() + 1)).slice(
+  //   -2
+  // )}-${date.getUTCDate()}`;
 };
 app.post("/api/exercise/add", (req, res, next) => {
   // check if the provided userId is valid
@@ -339,7 +377,19 @@ app.get("/api/exercise/log", (req, res) => {
                 return false;
               });
             }
-            res.json({ user: userResult, logs: userLogs });
+            userLogs = userLogs.map((log) => {
+              return {
+                description: log.description,
+                duration: log.duration,
+                date: log.date,
+              };
+            });
+            res.json({
+              _id: userId,
+              username: userResult.username,
+              count: userLogs.length,
+              log: userLogs,
+            });
           })
           .catch((err) => {
             res.json({ error: "could not fetch log collection" });
