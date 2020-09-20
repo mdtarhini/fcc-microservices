@@ -271,10 +271,10 @@ const getDateOrToday = (strDate) => {
 app.post("/api/exercise/add", (req, res, next) => {
   // check if the provided userId is valid
 
-  User.findById(req.body.userid)
+  User.findById(req.body.userId)
     .then((userResult) => {
       let newLog = new Log({
-        userid: req.body.userid,
+        userId: req.body.userId,
         duration: req.body.duration,
         description: req.body.description,
         date: getDateOrToday(req.body.date),
@@ -326,7 +326,7 @@ app.get("/api/exercise/log", (req, res) => {
         Log.find()
           .then((result) => {
             let userLogs = result
-              .filter((log) => log.userid === userId)
+              .filter((log) => log.userId === userId)
               .sort((a, b) => new Date(a.date) - new Date(b.date));
             if (limit) userLogs = userLogs.slice(0, limit);
             if (fromDate && toDate) {
